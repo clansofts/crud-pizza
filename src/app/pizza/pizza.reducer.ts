@@ -31,17 +31,21 @@ export function pizzaReducer(
   action: actions.PizzaActions
 ) {
   switch (action.type) {
-    case actions.CREATE:
-      return pizzaAdapter.addOne(action.pizza, state);
 
-    case actions.UPDATE:
-      return pizzaAdapter.updateOne({
-        id: action.id,
-        changes: action.changes,
-      }, state);
+    case actions.ADD_ALL:
+      return pizzaAdapter.addAll(action.pizzas, state);
 
-    case actions.DELETE:
-      return pizzaAdapter.removeOne(action.id, state);
+    // case actions.CREATE:
+    //   return pizzaAdapter.addOne(action.pizza, state);
+    //
+    // case actions.UPDATE:
+    //   return pizzaAdapter.updateOne({
+    //     id: action.id,
+    //     changes: action.changes,
+    //   }, state);
+    //
+    // case actions.DELETE:
+    //   return pizzaAdapter.removeOne(action.id, state);
 
     default:
       return state;
